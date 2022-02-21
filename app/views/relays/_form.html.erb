@@ -1,0 +1,27 @@
+<%= form_with(model: relay) do |form| %>
+  <% if relay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(relay.errors.count, "error") %> prohibited this relay from being saved:</h2>
+
+      <ul>
+        <% relay.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mac_address %>
+    <%= form.text_field :mac_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
